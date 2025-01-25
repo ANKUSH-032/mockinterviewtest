@@ -1,0 +1,35 @@
+.container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .question-box {
+    background-color: #f8f9fa;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .container {
+    position: relative;
+  }
+  
+  .camera-feed {
+    position: fixed; /* Position the camera feed relative to the viewport */
+    top: 10px; /* Adjust top position */
+    right: 10px; /* Adjust right position */
+    width: 200px; /* Set the width of the camera feed */
+    height: 150px; /* Set the height of the camera feed */
+    z-index: 1000; /* Ensure the camera feed stays on top */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow around the camera feed */
+    border-radius: 8px; /* Optional: Round the corners of the video */
+    overflow: hidden;
+  }
+  
+  .camera-feed video {
+    width: 100%; /* Make the video fill the container */
+    height: 100%; /* Make the video fill the container */
+    object-fit: cover; /* Crop the video to fit nicely */
+  }
+  
+  

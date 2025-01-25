@@ -1,0 +1,55 @@
+/* language-popup.component.css */
+
+/* Ensure the modal-dialog takes up a percentage of the screen width */
+.modal-dialog {
+    max-width: 90%; /* Adjust this value to control the width */
+    margin: 30px auto; /* Center the modal both horizontally and vertically */
+  }
+  
+  /* For smaller screens, ensure modal is centered and not too wide */
+  @media (max-width: 576px) {
+    .modal-dialog {
+      max-width: 95%; /* Ensure it's responsive on smaller screens */
+      margin-top: 10%; /* Adds some top margin to avoid it touching the top of the screen */
+    }
+  }
+  
+  /* For tablets or slightly larger screens */
+  @media (min-width: 576px) and (max-width: 768px) {
+    .modal-dialog {
+      max-width: 80%; /* For tablets, make the modal width smaller */
+    }
+  }
+  
+  /* For larger screens, keep the modal centered with appropriate width */
+  @media (min-width: 768px) {
+    .modal-dialog {
+      max-width: 60%; /* For large screens, set the modal width to 60% */
+      margin-top: 10%; /* Adds top margin to center vertically on larger screens */
+    }
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .modal-footer .btn {
+    margin-left: 10px;
+  }
+  
+  /* Optional: Make the close button a little larger */
+  .modal-header .close {
+    font-size: 1.5rem;
+  }
+  

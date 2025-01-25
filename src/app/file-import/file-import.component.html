@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="form-wrapper">
+    <h1>Import Data</h1>
+    <form (ngSubmit)="onSubmit()" #importForm="ngForm">
+      <label for="fileInput" class="file-label">Choose File</label>
+      <input type="file" id="fileInput" accept=".xlsx" (change)="onFileSelected($event)" />
+      <div class="file-name">{{ fileName || 'No file chosen' }}</div>
+      <div class="error">{{ errorMessage }}</div>
+      <button type="submit" [disabled]="!file">Upload</button>
+    </form>
+  </div>
+</div>

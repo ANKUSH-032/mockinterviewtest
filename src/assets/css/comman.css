@@ -1,0 +1,14 @@
+@import '~ngx-toastr/toastr.css';
+.toast-success {
+    background-color: green !important;
+  }
+  
+  .toast-error {
+    background-color: rgb(240, 90, 90) !important;
+  }
+  
+  .fixedFooter {
+    position: fixed;
+    width: 100%;
+    top: 670px;
+  }
