@@ -17,16 +17,27 @@
           <h4>Question {{ questionIndex + 1 }}:</h4>
           <p>{{ currentQuestion?.question }}</p>
         </div>
-        
+        <div class="text-center mt-3">
+          <h4>Time Remaining: {{ timeLeft }} seconds</h4>
+        </div>
       </div>
-      
+      <div id="transcription" class="transcription mt-3 p-2 border rounded bg-light"></div>
       <div class="camera-feed">
         <video #video autoplay playsinline muted></video>
       </div>
       <!-- Message if no questions are available -->
       <ng-template #noQuestions>
-        <p class="text-center text-muted">No questions to display.</p>
+        <div class="text-center mt-3">
+          <p class="text-muted">No questions available. Please upload your questions in the correct Excel format.</p>
+        </div>
       </ng-template>
+      <div class="text-center mt-3">
+        <button (click)="nextQuestion()" class="btn btn-primary">Next Question</button>
+      </div>
+
+      <div *ngIf="isSubmitVisible" class="text-center mt-3">
+        <button (click)="submitAnswers()" class="btn btn-success">Submit Answers</button>
+      </div>
     <!-- </div> -->
   </div>
   
