@@ -1,0 +1,34 @@
+<div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar" [ngClass]="{'closed': isMenuClosed}">
+      <!-- Toggle Button INSIDE Sidebar -->
+      <button class="toggle-btn" (click)="toggleMenu()">☰</button>
+  
+      <ul>
+        <li>
+          <a routerLink="/dashboard/home">
+            <span class="icon">🏠</span>
+            <span class="text" *ngIf="!isMenuClosed">Home</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/profile">
+            <span class="icon">👤</span>
+            <span class="text" *ngIf="!isMenuClosed">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/dashboard/settings">
+            <span class="icon">⚙️</span>
+            <span class="text" *ngIf="!isMenuClosed">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

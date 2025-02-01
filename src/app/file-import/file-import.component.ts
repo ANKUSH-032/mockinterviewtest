@@ -75,7 +75,7 @@ export class FileImportComponent implements OnInit {
   
                 // Prepare modal data
                 const modaldata = {
-                  title: 'Verify your email address',
+                  title: 'Select any langauge from dropdown.',
                   des: 'Your email address is required for video class registration',
                   showConfirmButton: true,
                   confirmButtonText: 'Ok',

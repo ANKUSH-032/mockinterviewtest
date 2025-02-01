@@ -1,0 +1,66 @@
+/* General Home Page Styling */
+.home {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Statistics Cards Container */
+  .stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Individual Stat Card */
+  .stat-card {
+    background: #feb47b; /* Orange Theme */
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+  }
+  
+  /* Hover Effect */
+  .stat-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Icon Styling */
+  .icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .card i {
+    font-size: 40px;
+    color: #4A235A;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.start-interview-btn {
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.start-interview-btn:hover {
+    background-color: #e76a4e;
+}

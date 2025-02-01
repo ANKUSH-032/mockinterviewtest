@@ -2,54 +2,127 @@
 
 /* Ensure the modal-dialog takes up a percentage of the screen width */
 .modal-dialog {
-    max-width: 90%; /* Adjust this value to control the width */
-    margin: 30px auto; /* Center the modal both horizontally and vertically */
+  max-width: 90%; /* Adjust this value to control the width */
+  margin: 30px auto; /* Center the modal both horizontally and vertically */
+  border: 2px solid #feb47b; /* Border color for modal dialog */
+  background-color: #fff4e1; /* Background color for modal dialog */
+  border-radius: 10px; /* Optional: Adding rounded corners */
+}
+
+/* For smaller screens, ensure modal is centered and not too wide */
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 95%; /* Ensure it's responsive on smaller screens */
+    margin-top: 10%; /* Adds some top margin to avoid it touching the top of the screen */
   }
-  
-  /* For smaller screens, ensure modal is centered and not too wide */
-  @media (max-width: 576px) {
-    .modal-dialog {
-      max-width: 95%; /* Ensure it's responsive on smaller screens */
-      margin-top: 10%; /* Adds some top margin to avoid it touching the top of the screen */
-    }
+}
+
+/* For tablets or slightly larger screens */
+@media (min-width: 576px) and (max-width: 768px) {
+  .modal-dialog {
+    max-width: 80%; /* For tablets, make the modal width smaller */
   }
-  
-  /* For tablets or slightly larger screens */
-  @media (min-width: 576px) and (max-width: 768px) {
-    .modal-dialog {
-      max-width: 80%; /* For tablets, make the modal width smaller */
-    }
+}
+
+/* For larger screens, keep the modal centered with appropriate width */
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 60%; /* For large screens, set the modal width to 60% */
+    margin-top: 10%; /* Adds top margin to center vertically on larger screens */
   }
+}
+
+/* Modal header with background and border */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff4e1; /* Background color for modal header */
+  border-bottom: 2px solid #feb47b; /* Border color for modal header */
+  padding: 15px; /* Optional: Add some padding for better spacing */
+  border-radius: 10px 10px 0 0; /* Optional: Rounded top corners */
+}
+
+/* Modal body */
+.modal-body {
+  padding: 20px;
+  background-color: #fff4e1; /* Background color for modal body */
+}
+
+/* Modal footer with border color */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #ffebc7;
+ 
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  border-top: 2px solid #feb47b; /* Border color for modal footer */
+}
+
+/* Styling for the buttons in footer */
+.modal-footer .btn {
+  margin-left: 10px;
+  border-color: #feb47b; /* Border color for buttons */
+  background-color: #fff4e1; /* Background color for buttons */
+  color: #feb47b; /* Text color for buttons */
+}
+
+.modal-footer .btn:hover {
   
-  /* For larger screens, keep the modal centered with appropriate width */
-  @media (min-width: 768px) {
-    .modal-dialog {
-      max-width: 60%; /* For large screens, set the modal width to 60% */
-      margin-top: 10%; /* Adds top margin to center vertically on larger screens */
-    }
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .modal-body {
-    padding: 20px;
-  }
-  
-  .modal-footer {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .modal-footer .btn {
-    margin-left: 10px;
-  }
-  
-  /* Optional: Make the close button a little larger */
-  .modal-header .close {
-    font-size: 1.5rem;
-  }
-  
+  background-color: #ffebc7;
+  font-size: 14px;
+  transition: border-color 0.3s ease, background-color 0.3s ease; /* Text color on hover */
+}
+
+/* Optional: Make the close button a little larger */
+.modal-header .close {
+  font-size: 1.5rem;
+  color: #feb47b; /* Close button color */
+}
+
+/* Optional: Close button hover effect */
+.modal-header .close:hover {
+  color: #d3835e; /* Darker shade of the color for hover effect */
+}
+.select-dropdown {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #feb47b;
+  border-radius: 8px;
+  background-color: #ffebc7;
+  font-size: 14px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  /* Smooth transition for border and background */
+  color: #333;
+  text-align: left; /* Align text to the left for the options */
+}
+.select-dropdown:focus {
+  border-color: #feb47b;
+  background-color: #fff4e1;
+  box-shadow: 0 0 5px rgba(254, 180, 123, 0.6);
+  outline: none;
+}
+
+/* Add focus effect for select dropdown with error */
+.input-group.error .select-dropdown {
+  border-color: #e74c3c;
+  /* Red border on error */
+}
+
+.input-group.error .select-dropdown:focus {
+  border-color: #e74c3c;
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.6);
+  /* Red glow effect */
+}
+
+/* To add the dropdown arrow */
+.input-group select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path d="M0 0l5 5 5-5z" fill="%23feb47b"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 10px;
+}

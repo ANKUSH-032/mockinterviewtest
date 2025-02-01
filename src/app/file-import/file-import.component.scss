@@ -6,38 +6,41 @@
 }
 
 /* Full-screen height and centering */
-// html, body {
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   font-family: Arial, sans-serif;
-//   background-color: #f4f7fc;
-// }
+html, body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #ffebc7; /* Lighter shade of #feb47b for the background */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
 
 /* Container that wraps the form */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  //width: 230vh;
   height: 100vh;
 }
 
 /* Form wrapper with styling */
 .form-wrapper {
-  background: #fff;
+  background-color: #ffebc7; /* Lighter shade of #feb47b for the background */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 500px; /* Max width of the form */
+  border: 2px solid #feb47b; /* Updated border color */
 }
 
 h1 {
   margin-bottom: 20px;
   font-size: 2rem;
   text-align: center;
+  color: #feb47b; /* Updated color for the heading */
 }
 
 form {
@@ -49,6 +52,7 @@ form {
 label {
   margin-bottom: 10px;
   font-size: 1rem;
+  color: #333; /* Slightly darker color for labels */
 }
 
 input[type="file"] {
@@ -56,8 +60,9 @@ input[type="file"] {
   width: 100%;
   margin-bottom: 15px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #feb47b; /* Updated border color */
   border-radius: 4px;
+  background-color: #fff; /* White background for the input */
 }
 
 .file-name {
@@ -73,7 +78,7 @@ input[type="file"] {
 }
 
 button {
-  background-color: #007bff;
+  background-color: #feb47b; /* Button background color */
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -101,5 +106,5 @@ button:disabled {
   button {
     width: 100%;
     max-width: 100%;
-  }
+  } 
 }

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FileImportComponent } from './file-import/file-import.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { ApiService } from './service/api.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -12,6 +12,11 @@ import {NgxUiLoaderConfig, NgxUiLoaderModule, PB_DIRECTION, POSITION, SPINNER} f
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionTypeComponent } from './shared/modals/question-type/question-type.component';
 import { QuestionDisplayComponent } from './question-display/question-display.component';
+import { MainPageComponent } from './auth/main-page/main-page.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { DashboardComponent } from './auth/dashboard/dashboard.component';
+import { HomeComponent } from './auth/home/home.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig =
 {
@@ -50,6 +55,11 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig =
     FileImportComponent,
     QuestionTypeComponent,
     QuestionDisplayComponent,
+    MainPageComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +72,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig =
       preventDuplicates: true
     }),
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig), 
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,215 @@
+body {
+    background: linear-gradient(to bottom, #feb47b, #f9f9f9);
+
+    font-family: 'Arial', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outer {
+    width: 100%;
+    max-width: 600px;
+    /* Increased width for mixed layout */
+    margin: auto;
+}
+
+.panel {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.panel-heading {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    /* Larger size for the "X" button */
+    font-weight: bold;
+    /* Bold font for the "X" */
+    color: #0d0a0a;
+    /* Dark color for visibility */
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #f00;
+    /* Change to red when hovered */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input-group-text {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #feb47b;
+}
+
+.form-control {
+    border: 1px solid #feb47b;
+    /* Set the default border to #feb47b */
+    padding: 12px 15px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 14px;
+    background-color: #ffebc7;
+    /* Lighter shade of #feb47b for the background */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    /* Smooth transition for border and background */
+}
+
+/* Focus state for the input fields */
+.form-control:focus {
+    border-color: #feb47b;
+    /* Light border color on focus */
+    background-color: #fff4e1;
+    /* Light background color on focus */
+    box-shadow: 0 0 5px rgba(254, 180, 123, 0.6);
+    /* Optional: Adds a light glow effect */
+    outline: none;
+    /* Remove default outline */
+}
+
+/* Add focus effect to input fields with error */
+.input-group.error .form-control {
+    border-color: #e74c3c;
+    /* Change border to red if there is an error */
+}
+
+.input-group.error .form-control:focus {
+    border-color: #e74c3c;
+    /* Keep the red border when focused with error */
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.6);
+    /* Red glow effect */
+}
+
+.eye-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.fr {
+    text-align: right;
+}
+
+.btn-block {
+    width: 100%;
+    background-color: #feb47b;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-block:hover {
+    background: #ff7e5f;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #feb47b;
+}
+
+#forget {
+    color: #feb47b;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#forget:hover {
+    color: #ff7e5f;
+    text-decoration: underline;
+}
+
+.select-dropdown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #feb47b;
+    border-radius: 8px;
+    background-color: #ffebc7;
+    font-size: 14px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    /* Smooth transition for border and background */
+    color: #333;
+    text-align: left; /* Align text to the left for the options */
+}
+.select-dropdown:focus {
+    border-color: #feb47b;
+    background-color: #fff4e1;
+    box-shadow: 0 0 5px rgba(254, 180, 123, 0.6);
+    outline: none;
+}
+
+/* Add focus effect for select dropdown with error */
+.input-group.error .select-dropdown {
+    border-color: #e74c3c;
+    /* Red border on error */
+}
+
+.input-group.error .select-dropdown:focus {
+    border-color: #e74c3c;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.6);
+    /* Red glow effect */
+}
+
+/* To add the dropdown arrow */
+.input-group select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path d="M0 0l5 5 5-5z" fill="%23feb47b"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 10px;
+}
+// .horizontal-form {
+//     display: flex;
+//     flex-wrap: wrap;
+//   }
+
+//   .horizontal-form .form-group {
+//     width: 48%; /* Adjust the width as needed */
+//     margin-right: 2%; /* Adjust the margin as needed */
+//   }

@@ -49,7 +49,7 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
     } else if (this.questions.length === 0) {
       this.handleNoQuestions(); // Handle the case where no questions are available
     } else {
-      console.error('No questions found!');
+      this.toastr.error('No questions found!');
     }
   }
 
@@ -72,54 +72,6 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
     }
   }
 
-  // startSpeechRecognition(): void {
-  //   const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-  //   if (!SpeechRecognition) {
-  //     alert('Speech Recognition is not supported in this browser.');
-  //     return;
-  //   }
-
-  //   this.recognition = new SpeechRecognition();
-  //   this.recognition.lang = 'en-US';
-  //   this.recognition.continuous = true; // Continuous recognition
-  //   this.recognition.interimResults = true; // Get real-time results
-
-  //   this.recognition.onresult = (event: SpeechRecognitionEvent) => {
-  //     let interimTranscription = '';
-  //     for (let i = event.resultIndex; i < event.results.length; i++) {
-  //       const transcript = event.results[i][0].transcript;
-  //       if (event.results[i].isFinal) {
-  //         this.transcription += transcript + ' '; // Add final result to transcription
-  //       } else {
-  //         interimTranscription += transcript; // Collect interim result
-  //       }
-  //     }
-
-  //     // Display the transcription below the question
-  //     const displayText = this.transcription + interimTranscription;
-  //     const transcriptionElement = document.getElementById('transcription');
-  //     if (transcriptionElement) {
-  //       transcriptionElement.innerText = displayText.trim();
-  //     }
-  //   };
-
-  //   this.recognition.onerror = (event: any) => {
-  //     console.error('Speech recognition error:', event.error);
-  //     if (event.error === 'no-speech' || event.error === 'audio-capture') {
-  //       console.warn('No speech detected. Restarting recognition...');
-  //       this.recognition.stop();
-  //       this.recognition.start(); // Gracefully restart
-  //     }
-  //   };
-
-  //   this.recognition.onend = () => {
-  //     console.warn('Speech recognition ended. Restarting...');
-  //     this.recognition.start(); // Restart on end
-  //   };
-
-  //   this.recognition.start(); // Start recognition
-  // }
-
   initializeSpeechRecognition(): void {
     const SpeechRecognition =
       (window as any).SpeechRecognition ||
@@ -131,26 +83,24 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
 
     this.recognition = new SpeechRecognition();
     this.recognition.lang = 'en-US';
-    this.recognition.continuous = true; // Enable continuous recognition
-    this.recognition.interimResults = true; // Enable interim results
+    this.recognition.continuous = true;
+    this.recognition.interimResults = true;
 
     this.recognition.onresult = (event: SpeechRecognitionEvent) => {
       let interimTranscription = '';
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const transcript = event.results[i][0].transcript;
         if (event.results[i].isFinal) {
-          this.transcription += transcript + ' '; // Append final result
+          this.transcription += transcript + ' ';
         } else {
-          interimTranscription += transcript; // Collect interim result
+          interimTranscription += transcript;
         }
       }
 
       // Display the transcription below the question
       const displayText = this.transcription + interimTranscription;
       const transcriptionElement = document.getElementById('transcription');
-      // if (transcriptionElement) {
-      //   transcriptionElement.innerText = displayText.trim();
-      // }
+
       if (transcriptionElement) {
         transcriptionElement.innerText = (
           this.transcription + interimTranscription
@@ -199,6 +149,7 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
   startQuestionTimer(): void {
     this.setCurrentQuestion();
     this.resetCountdown();
+    this.restartSpeechRecognition();
     this.intervalSubscription = interval(60000).subscribe(() => {
       this.saveAnswer();
       this.questionIndex++;
@@ -225,6 +176,7 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
       });
     }
   }
+
   stopQuestionTimer(): void {
     if (this.intervalSubscription) {
       this.intervalSubscription.unsubscribe();
@@ -235,6 +187,7 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
       this.countdownInterval = null;
     }
   }
+
   resetCountdown(): void {
     if (this.countdownInterval) {
       this.countdownInterval.unsubscribe(); // Clear any previous interval
@@ -244,20 +197,17 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
     this.countdownInterval = interval(1000).subscribe(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--; // Decrement the timer
+      } else {
+        this.countdownInterval?.unsubscribe(); // Stop the interval
+        this.nextQuestion(); // Go to the next question when timer reaches zero
       }
     });
   }
-  // ngOnDestroy(): void {
-  //   if (this.videoStream) {
-  //     this.videoStream.getTracks().forEach((track) => track.stop());
-  //   }
-  //   this.stopQuestionTimer();
-  // }
 
   submitAnswers(): void {
     // Add any remaining transcription as the final answer for the last question
     this.saveAnswer();
-
+    console.log('this.answers', this.answers);
     // Call your API to submit the answers
     console.log('Submitting answers:', this.answers);
 
@@ -267,14 +217,18 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
       this.router.navigate(['/success']); // Navigate to a success page after submission
     }, 1000);
   }
+
   nextQuestion(): void {
-    if (this.questionIndex < this.questions.length - 1) {
+    this.saveAnswer(); 
+    if (this.questionIndex <= this.questions.length - 1) {
       this.questionIndex++;
       this.setCurrentQuestion();
       this.resetCountdown();
       this.restartSpeechRecognition();
     } else {
-      this.restartSpeechRecognition();
+      //this.restartSpeechRecognition();
+      this.stopQuestionTimer();
+      this.isSubmitVisible = true;
       // Handle completion of all questions
     }
   }

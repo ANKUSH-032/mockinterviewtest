@@ -1,0 +1,97 @@
+/* General Layout */
+body {
+    background: linear-gradient(to bottom, #feb47b, #f9f9f9);
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Dashboard Wrapper */
+  .dashboard {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: #feb47b; /* Menu background */
+    padding: 20px;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  /* Mini Sidebar (Collapsed State) */
+  .sidebar.closed {
+    width: 70px; /* Mini-menu width */
+    padding: 20px 10px;
+  }
+  
+  /* Sidebar Menu */
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: white; /* Text color */
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  .sidebar ul li a:hover {
+    background: #ff7e5f;
+  }
+  
+  /* Icon & Text */
+  .icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  /* Hide text when menu is closed */
+  .sidebar.closed .text {
+    display: none;
+  }
+  
+  /* Toggle Button (Inside Sidebar) */
+  .toggle-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .toggle-btn:hover {
+    color: #ff7e5f;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+    transition: margin-left 0.3s;
+    background-color: #ffebc7; /* Lighter shade of #feb47b for the background */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  

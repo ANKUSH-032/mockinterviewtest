@@ -12,3 +12,18 @@
     width: 100%;
     top: 670px;
   }
+  /* Sidebar Background */
+.sidebar {
+  background-color: #F4A261;
+  color: white;
+}
+
+/* Card Styling */
+.card {
+  background-color: #F4A261;
+  color: #4A235A;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}

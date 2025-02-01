@@ -1,0 +1,221 @@
+<div class="login-container">
+    <div class="outer">
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class="pt-3 font-weight-bold text-dark">Sign Up</h3>
+          <span class="close-btn" (click)="close()">×</span>
+        </div>
+    
+        <div class="panel-body p-3">
+          <form [formGroup]="signupForm" class="horizontal-form" (ngSubmit)="onSignup()" autocomplete="off">
+            <!-- Disable autocomplete for the entire form -->
+
+            <!-- First Name -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fa fa-user"></i>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="FirstName"
+                  placeholder="First Name"
+                  autocomplete="off" 
+                  name="FirstName"
+                />
+              </div>
+              <small
+                class="text-danger"
+                *ngIf="
+                  signupForm.controls['FirstName'].dirty &&
+                  signupForm.controls['FirstName'].invalid
+                "
+              >*First Name is required</small>
+            </div>
+    
+            <!-- Last Name -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fa fa-user"></i>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="LastName"
+                  placeholder="Last Name"
+                  autocomplete="off" 
+                  name="LastName"
+                />
+              </div>
+              <small
+                class="text-danger"
+                *ngIf="
+                  signupForm.controls['LastName'].dirty &&
+                  signupForm.controls['LastName'].invalid
+                "
+              >*Last Name is required</small>
+            </div>
+    
+            <!-- Email -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fa fa-envelope"></i>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="Email"
+                  placeholder="Email"
+                  autocomplete="off"
+                  name="Email" 
+                />
+              </div>
+              <small
+                class="text-danger"
+                *ngIf="
+                  signupForm.controls['Email'].dirty &&
+                  signupForm.controls['Email'].invalid
+                "
+              >*Email is required</small>
+            </div>
+    
+            <!-- Password -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fa fa-lock"></i>
+                </span>
+                <input
+                  [type]="type"
+                  class="form-control"
+                  formControlName="Password"
+                  placeholder="Password"
+                  autocomplete="new-password" 
+                  name="Password" 
+                />
+                <span
+                  (click)="hideshowpass()"
+                  class="fa {{ eyeIcon }} eye-icon"
+                ></span>
+              </div>
+              <small
+                class="text-danger"
+                *ngIf="
+                  signupForm.controls['Password'].dirty &&
+                  signupForm.controls['Password'].invalid
+                "
+              >*Password is required</small>
+            </div>
+    
+            <!-- Contact No -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fa fa-phone"></i>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="ContactNo"
+                  placeholder="Contact No"
+                  autocomplete="off" 
+                  name="ContactNo"
+                />
+              </div>
+              <small
+                class="text-danger"
+                *ngIf="
+                  signupForm.controls['ContactNo'].dirty &&
+                  signupForm.controls['ContactNo'].invalid
+                "
+              >*Contact No is required</small>
+            </div>
+    
+           
+    
+            <!-- Address -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fa fa-map-marker"></i>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="Address"
+                  placeholder="Address"
+                  autocomplete="off" 
+                  name="Address"
+                />
+              </div>
+              <small
+                class="text-danger"
+                *ngIf="
+                  signupForm.controls['Address'].dirty &&
+                  signupForm.controls['Address'].invalid
+                "
+              >*Address is required</small>
+            </div>
+    
+            <!-- Zip Code -->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fa fa-map-pin"></i>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="ZipCode"
+                  placeholder="Zip Code"
+                  autocomplete="off" 
+                  name="ZipCode"
+                />
+              </div>
+              <small
+                class="text-danger"
+                *ngIf="
+                  signupForm.controls['ZipCode'].dirty &&
+                  signupForm.controls['ZipCode'].invalid
+                "
+              >*Zip Code is required</small>
+            </div>
+    
+            <!-- Gender Dropdown -->
+            <div class="form-group dropdown-form-group">
+                <div class="input-group">
+                  <span class="input-group-text">
+                    <i class="fa fa-venus-mars"></i>
+                  </span>
+                  <select class="form-control select-dropdown" formControlName="Gender">
+                    <option value="" disabled selected>Select Gender</option>
+                    <option *ngFor="let gender of genderOptions" [value]="gender.value">{{ gender.label }}</option>
+                  </select>
+                </div>
+                <small
+                  class="text-danger"
+                  *ngIf="
+                    signupForm.controls['Gender'].dirty &&
+                    signupForm.controls['Gender'].invalid
+                  "
+                >*Gender is required</small>
+              </div>
+    
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block mt-4 w-100">
+              Sign Up
+            </button>
+    
+            <!-- Already have an account link -->
+            <div class="text-center pt-4 text-muted">
+              Already have an account? <a id="forget" (click)="close()">Login</a>
+            </div>
+    
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
