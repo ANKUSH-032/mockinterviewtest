@@ -17,13 +17,38 @@
             <span class="text" *ngIf="!isMenuClosed">Profile</span>
           </a>
         </li>
+        
         <li>
-          <a routerLink="/dashboard/settings">
-            <span class="icon">⚙️</span>
-            <span class="text" *ngIf="!isMenuClosed">Settings</span>
+          <a routerLink="file-import">
+            <span class="icon">📂</span>
+            <span class="text" *ngIf="!isMenuClosed">Start Interview</span>
           </a>
         </li>
+          <li>
+            <a routerLink="candidates-list">
+              <span class="icon">👥</span>
+              <span class="text" *ngIf="!isMenuClosed">Candidates</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="candidates-list">
+              <span class="icon">👥</span>
+              <span class="text" *ngIf="!isMenuClosed">Admin List</span>
+            </a>
+          </li>
+          <!-- <li>
+            <a routerLink="/dashboard/settings">
+              <span class="icon">⚙️</span>
+              <span class="text" *ngIf="!isMenuClosed">Settings</span>
+            </a>
+          </li> -->
       </ul>
+      <div class="settings-link">
+        <a routerLink="/dashboard/settings">
+          <span class="icon">⚙️</span>
+          <span class="text" *ngIf="!isMenuClosed">Settings</span>
+        </a>
+      </div>
     </div>
   
     <!-- Main Content -->

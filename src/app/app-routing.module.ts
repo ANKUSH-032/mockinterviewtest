@@ -13,11 +13,12 @@ const routes: Routes = [
   {path:'login',component:MainPageComponent},
   { path: 'dashboard', component: DashboardComponent, children: [
   { path: 'home', component: HomeComponent },
+  {path:'file-import',component:FileImportComponent},
    // { path: 'profile', component: ProfileComponent },
     //{ path: 'settings', component: SettingsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
   ]},
-  {path:'file-import',component:FileImportComponent},
+  {path:'dashboard/file-import',component:FileImportComponent},
   {path:'question-type',component:QuestionTypeComponent},
   { path: 'question-display', component: QuestionDisplayComponent },
   //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
