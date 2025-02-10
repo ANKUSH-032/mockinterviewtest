@@ -3,7 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import ValiadateForm from 'src/app/helper/Valiadate';
 import { ApiService } from 'src/app/service/api.service';
+import { CommonService } from 'src/app/service/common.service';
+import { StorageService } from 'src/app/service/storage.service';
 
 @Component({
   selector: 'app-register',
@@ -23,8 +26,8 @@ export class RegisterComponent implements OnInit {
     private toastr: ToastrService,
     public activeModal: NgbActiveModal,
     private router : Router,
-    
-    //private storageService: StorageServiceService,
+    private storageService: StorageService,
+    private commonService: CommonService
   ) { }
 
   ngOnInit(): void {
@@ -40,10 +43,10 @@ export class RegisterComponent implements OnInit {
       ContactNo: ['', Validators.required],
       Email: ['', Validators.required],
       Address: ['', Validators.required],
-      HospitalName: ['', Validators.required],
       ZipCode: ['', Validators.required],
       Gender: ['', Validators.required],
-      Password: ['', Validators.required],
+      Password: [Validators.required, Validators.pattern(this.commonService.passwordPattern)],
+      ConfirmPassword:['',Validators.required],
     });
   }
   hideshowpass() {
@@ -57,38 +60,36 @@ export class RegisterComponent implements OnInit {
 
   onSignup() {
     this.activeModal.close();
-    this.router.navigate(["/dashboard/home"])
-    // if (this.signupForm.valid) {
-
-    //   this.auth.postRequest('Patient/insert', this.signupForm.value).subscribe({
-    //     next: (res: any) => {
-    //       this.toastr.success(res.message + " Kindly Login to the site");
-    //       // Redirect to the login page after a successful signup
-    //      // const token = this.storageService.get('token')
-          
-          
-    //       // if (token != null) {
-    //       //   this.route.navigate(['/list-patients']);
-    //       // } else {
-    //       //   this.route.navigateByUrl('/login');
-    //       // }
-
-
-
-    //     },
-    //     error: (res: any) => {
-    //       this.toastr.error(res.message);
-    //     }
-    //   });
-    // } else {
-    //   //ValiadateForm.validateAllFormFileds(this.signupForm);
-    //   this.toastr.error('You form is invalid');
-    // }
-
+    if (this.signupForm.valid) {
+      console.log(this.signupForm.value);
+      this.auth.postRequest('Candidate/insert', this.signupForm.value).subscribe({
+        next: (res: any) => {
+          this.activeModal.close();
+          this.toastr.success(res.message + " Kindly Login to the site");
+          const token = this.storageService.get('token');
+  
+          if (token != null) {
+            this.router.navigate(['/dashboard']);
+          } else {
+            this.router.navigateByUrl('/login');
+          }
+        },
+        error: (res: any) => {
+          if (res.status === 409) {
+            this.toastr.error('A user with the same details already exists. Please try with different credentials.');
+          } else {
+            this.toastr.error(res.message || 'An unexpected error occurred.');
+          }
+        }
+      });
+    } else {
+      ValiadateForm.validateAllFormFileds(this.signupForm);
+      this.toastr.error('Your form is invalid');
+    }
   }
-
+  
 viewButton(){
- // this.storageService.get('token')
+  this.storageService.get('token')
 }
 
 }

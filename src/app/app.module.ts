@@ -17,6 +17,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './auth/dashboard/dashboard.component';
 import { HomeComponent } from './auth/home/home.component';
+import { AdminAddComponent } from './admin/admin-add/admin-add.component';
+import { AdminListComponent } from './admin/admin-list/admin-list.component';
+import { CandidateListComponent } from './admin/candidate-list/candidate-list.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig =
 {
@@ -60,6 +63,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig =
     RegisterComponent,
     DashboardComponent,
     HomeComponent,
+    AdminAddComponent,
+    AdminListComponent,
+    CandidateListComponent,
   ],
   imports: [
     BrowserModule,
