@@ -1,139 +1,69 @@
-body {
-    background: linear-gradient(to bottom, #feb47b, #f9f9f9);
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .panel {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .panel-heading {
-    position: relative;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-  }
-  
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px; /* Larger size for the "X" button */
-    font-weight: bold; /* Bold font for the "X" */
-    color: #0d0a0a; /* Dark color for visibility */
-    cursor: pointer;
-  }
-  
-  .close-btn:hover {
-    color: #f00; /* Change to red when hovered */
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .input-group {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-group label {
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .input-group-text {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #feb47b;
-  }
-  
-  .form-control {
-    border: 1px solid #feb47b; /* Set the default border to #feb47b */
-    padding: 12px 15px;
-    border-radius: 8px;
-    width: 100%;
-    font-size: 14px;
-    background-color: #ffebc7; /* Lighter shade of #feb47b for the background */
-    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition for border and background */
-  }
-  
-  /* Focus state for the input fields */
-  .form-control:focus {
-    border-color: #feb47b; /* Light border color on focus */
-    background-color: #fff4e1; /* Light background color on focus */
-    box-shadow: 0 0 5px rgba(254, 180, 123, 0.6); /* Optional: Adds a light glow effect */
-    outline: none; /* Remove default outline */
-  }
-  
-  /* Add focus effect to input fields with error */
-  .input-group.error .form-control {
-    border-color: #e74c3c; /* Change border to red if there is an error */
-  }
-  
-  .input-group.error .form-control:focus {
-    border-color: #e74c3c; /* Keep the red border when focused with error */
-    box-shadow: 0 0 5px rgba(231, 76, 60, 0.6); /* Red glow effect */
-  }
-  
-  .eye-icon {
-    cursor: pointer;
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-  }
-  
-  .fr {
-    text-align: right;
-  }
-  
-  .btn-block {
-    width: 100%;
-    background-color: #feb47b;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .btn-block:hover {
-    background: #ff7e5f;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
-  .text-muted {
-    color: #feb47b;
-  }
-  
-  #forget {
-    color: #feb47b;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  #forget:hover {
-    color: #ff7e5f;
-    text-decoration: underline;
-  }
-  
+/* Custom styles for the login container */
+.login-container {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Logo styling */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Sign in text styling */
+.sign-in {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Register link styling */
+.register-link {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Form label styling */
+.form-label {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Form input styling */
+.form-control {
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Remember me checkbox styling */
+.form-check-label {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Forgot password link styling */
+.text-primary {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.text-primary:hover {
+  text-decoration: underline;
+}
+
+/* Login button styling */
+.btn-primary {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Social login text styling */
+.text-muted {
+  font-size: 14px;
+  color: #555;
+}

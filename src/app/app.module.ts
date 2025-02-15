@@ -20,6 +20,7 @@ import { HomeComponent } from './auth/home/home.component';
 import { AdminAddComponent } from './admin/admin-add/admin-add.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { CandidateListComponent } from './admin/candidate-list/candidate-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig =
 {
@@ -79,7 +80,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig =
     }),
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig), 
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

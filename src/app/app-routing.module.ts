@@ -6,11 +6,14 @@ import { QuestionDisplayComponent } from './question-display/question-display.co
 import { MainPageComponent } from './auth/main-page/main-page.component';
 import { DashboardComponent } from './auth/dashboard/dashboard.component';
 import { HomeComponent } from './auth/home/home.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 const routes: Routes = [
-  {path:'',component:MainPageComponent},
-  {path:'login',component:MainPageComponent},
+ // { path: '', redirectTo: 'main-page', pathMatch: 'full' },
+  {path:'main-page',component:MainPageComponent},
+  {path:'login',component:LoginComponent},
+  // {path:'login',component:MainPageComponent},
   { path: 'dashboard', component: DashboardComponent, children: [
   { path: 'home', component: HomeComponent },
   {path:'file-import',component:FileImportComponent},

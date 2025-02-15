@@ -12,9 +12,9 @@ import { StorageService } from 'src/app/service/storage.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-  @Input() public modalData:any;
-  modalRef!: NgbModalRef;
+export class LoginComponent {
+  // @Input() public modalData:any;
+  // modalRef!: NgbModalRef;
   loginForm!: FormGroup;
   isText: boolean = false;
   eyeIcon: string = 'fa-eye-slash';
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   fieldTextType :boolean = false
 
   constructor(
-    public activeModal: NgbActiveModal,
+   // public activeModal: NgbActiveModal,
     private fb: FormBuilder,
     private router : Router,
     private authService: ApiService,
@@ -37,17 +37,17 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-    this.clearToken();
-    this.route.events.subscribe((event: any) => {
-      if (event instanceof NavigationEnd && event.url === '/login') {
-        // Refresh the page when navigating back to the login page
-        location.reload();
-      } 
-    });
+    // this.loginForm = this.fb.group({
+    //   email: ['', Validators.required],
+    //   password: ['', Validators.required],
+    // });
+    // this.clearToken();
+    // this.route.events.subscribe((event: any) => {
+    //   if (event instanceof NavigationEnd && event.url === '/login') {
+    //     // Refresh the page when navigating back to the login page
+    //     location.reload();
+    //   } 
+    // });
   }
   refreshPage() {
     throw new Error('Method not implemented.');
@@ -55,9 +55,9 @@ export class LoginComponent implements OnInit {
 
  
 
-  close(type:number = 0){
-    this.activeModal.close({status: type});
-  }
+  // close(type:number = 0){
+  //   this.activeModal.close({status: type});
+  // }
 
   // submitLogin() {
     
@@ -71,63 +71,63 @@ export class LoginComponent implements OnInit {
   // }
 
 
-  submitLogin() {
-    // debugger;
-     this.submitted = true;
+  // submitLogin() {
+  //   // debugger;
+  //    this.submitted = true;
    
-     if (this.loginForm.valid) {
-       const loginData = this.loginForm.value;
+  //    if (this.loginForm.valid) {
+  //      const loginData = this.loginForm.value;
  
-       this.authService.postRequest('Auth/login', loginData).subscribe(
-         (res: any) => {
+  //      this.authService.postRequest('Auth/login', loginData).subscribe(
+  //        (res: any) => {
            
-           if (res && res.status) {
+  //          if (res && res.status) {
           
-             localStorage.setItem('isLoggedIn', 'true');
-             localStorage.setItem('token', res.userdetails.token);
-             this.storageService.set('user', res.data);
-             this.storageService.set('token', res.userdetails.token);
-             this.storageService.set('role', res.userdetails.role);
-             this.toastr.success(res.message || 'Login successful'); 
-             console.log(res.userdetails.role);
+  //            localStorage.setItem('isLoggedIn', 'true');
+  //            localStorage.setItem('token', res.userdetails.token);
+  //            this.storageService.set('user', res.data);
+  //            this.storageService.set('token', res.userdetails.token);
+  //            this.storageService.set('role', res.userdetails.role);
+  //            this.toastr.success(res.message || 'Login successful'); 
+  //            console.log(res.userdetails.role);
              
-             if(res.userdetails.role === 'admin'){
-               this.route.navigateByUrl('/list-admin');
-             }else if(res.userdetails.role === 'doctor'){
-               this.route.navigateByUrl('/list-patients');
-               this.storageService.set('doctoruserId', res.userdetails.userId);
-             }else{
-               this.route.navigateByUrl('/list-appointment');
-               this.storageService.set('patientuserId', res.userdetails.userId);
-             }
+  //            if(res.userdetails.role === 'admin'){
+  //              this.route.navigateByUrl('/list-admin');
+  //            }else if(res.userdetails.role === 'doctor'){
+  //              this.route.navigateByUrl('/list-patients');
+  //              this.storageService.set('doctoruserId', res.userdetails.userId);
+  //            }else{
+  //              this.route.navigateByUrl('/list-appointment');
+  //              this.storageService.set('patientuserId', res.userdetails.userId);
+  //            }
             
-           } 
-           else  {
+  //          } 
+  //          else  {
             
-             this.toastr.error(res.message || 'Login unsuccessful'); 
-           }
-         },
-         (res) => {
-           this.toastr.error(res.message || 'Login unsuccessful');
-          // this.toastr.error('Error in login request'); 
-         }
-       );
+  //            this.toastr.error(res.message || 'Login unsuccessful'); 
+  //          }
+  //        },
+  //        (res) => {
+  //          this.toastr.error(res.message || 'Login unsuccessful');
+  //         // this.toastr.error('Error in login request'); 
+  //        }
+  //      );
    
-     } else {
+  //    } else {
        
-       ValiadateForm.validateAllFormFileds(this.loginForm);
-       this.toastr.error('Your form is invalid');
-     }
-   }
-   private clearToken() {
+  //      ValiadateForm.validateAllFormFileds(this.loginForm);
+  //      this.toastr.error('Your form is invalid');
+  //    }
+  //  }
+  //  private clearToken() {
  
-     localStorage.removeItem('token');
+  //    localStorage.removeItem('token');
     
-   }
+  //  }
 
-  hideshowpass() {
-    this.isText = !this.isText;
-    this.isText ? (this.eyeIcon = 'fa-eye') : (this.eyeIcon = 'fa-eye-slash');
-    this.isText ? (this.type = 'text') : (this.type = 'password');
-  }
+  // hideshowpass() {
+  //   this.isText = !this.isText;
+  //   this.isText ? (this.eyeIcon = 'fa-eye') : (this.eyeIcon = 'fa-eye-slash');
+  //   this.isText ? (this.type = 'text') : (this.type = 'password');
+  // }
 }

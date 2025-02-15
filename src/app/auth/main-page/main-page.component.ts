@@ -12,7 +12,7 @@ import { RegisterComponent } from '../register/register.component';
 export class MainPageComponent implements OnInit {
   modalRef!: NgbModalRef;
   constructor(private router: Router,
-    private modalService: NgbModal
+    // private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {}
@@ -20,43 +20,43 @@ export class MainPageComponent implements OnInit {
   login() {
     //alert('Redirecting to Login Page!');
 
-    const modaldata = {
-      //title: 'Confirmation Message',
-      // des: 'Thank you for joining the waitlist for this class. An email will be sent when a space opens up or if we open another class for this topic.',
-      showConfirmButton: true,
-      confirmButtonText: 'Yes',
-      showCancelButton: true,
-      cancelButtonText: 'No',
-    };
-    const ngbModalOptions: NgbModalOptions = {
-      backdrop: 'static',
-      keyboard: false,
-      ariaLabelledBy: 'delete-modal',
-      centered: true,
-      size: 'md',
-    };
-    this.modalRef = this.modalService.open(LoginComponent, ngbModalOptions);
-    this.modalRef.componentInstance.modalData = modaldata;
-    //this.router.navigate(['/login']);
+    // const modaldata = {
+    //   //title: 'Confirmation Message',
+    //   // des: 'Thank you for joining the waitlist for this class. An email will be sent when a space opens up or if we open another class for this topic.',
+    //   showConfirmButton: true,
+    //   confirmButtonText: 'Yes',
+    //   showCancelButton: true,
+    //   cancelButtonText: 'No',
+    // };
+    // const ngbModalOptions: NgbModalOptions = {
+    //   backdrop: 'static',
+    //   keyboard: false,
+    //   ariaLabelledBy: 'delete-modal',
+    //   centered: true,
+    //   size: 'md',
+    // };
+    // this.modalRef = this.modalService.open(LoginComponent, ngbModalOptions);
+    // this.modalRef.componentInstance.modalData = modaldata;
+    this.router.navigate(['/login']);
   }
 
   register() {
-    const modaldata = {
-      //title: 'Confirmation Message',
-      // des: 'Thank you for joining the waitlist for this class. An email will be sent when a space opens up or if we open another class for this topic.',
-      showConfirmButton: true,
-      confirmButtonText: 'Yes',
-      showCancelButton: true,
-      cancelButtonText: 'No',
-    };
-    const ngbModalOptions: NgbModalOptions = {
-      backdrop: 'static',
-      keyboard: false,
-      ariaLabelledBy: 'delete-modal',
-      centered: true,
-      size: 'md',
-    };
-    this.modalRef = this.modalService.open(RegisterComponent, ngbModalOptions);
-    this.modalRef.componentInstance.modalData = modaldata;
+    // const modaldata = {
+    //   //title: 'Confirmation Message',
+    //   // des: 'Thank you for joining the waitlist for this class. An email will be sent when a space opens up or if we open another class for this topic.',
+    //   showConfirmButton: true,
+    //   confirmButtonText: 'Yes',
+    //   showCancelButton: true,
+    //   cancelButtonText: 'No',
+    // };
+    // const ngbModalOptions: NgbModalOptions = {
+    //   backdrop: 'static',
+    //   keyboard: false,
+    //   ariaLabelledBy: 'delete-modal',
+    //   centered: true,
+    //   size: 'md',
+    // };
+    // this.modalRef = this.modalService.open(RegisterComponent, ngbModalOptions);
+    // this.modalRef.componentInstance.modalData = modaldata;
   }
 }
