@@ -20,6 +20,10 @@ import { HomeComponent } from './auth/home/home.component';
 import { AdminAddComponent } from './admin/admin-add/admin-add.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { CandidateListComponent } from './admin/candidate-list/candidate-list.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { AnswerViewComponent } from './admin/answer-view/answer-view.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig =
 {
@@ -66,6 +70,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig =
     AdminAddComponent,
     AdminListComponent,
     CandidateListComponent,
+    NotfoundComponent,
+    HeaderComponent,
+    AnswerViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +87,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig =
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig), 
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

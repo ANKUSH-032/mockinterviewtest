@@ -1,7 +1,7 @@
-<div class="dashboard">
-    <!-- Sidebar -->
+<!-- <div class="dashboard">
+
     <div class="sidebar" [ngClass]="{'closed': isMenuClosed}">
-      <!-- Toggle Button INSIDE Sidebar -->
+      
       <button class="toggle-btn" (click)="toggleMenu()">☰</button>
   
       <ul>
@@ -36,12 +36,7 @@
               <span class="text" *ngIf="!isMenuClosed">Admin List</span>
             </a>
           </li>
-          <!-- <li>
-            <a routerLink="/dashboard/settings">
-              <span class="icon">⚙️</span>
-              <span class="text" *ngIf="!isMenuClosed">Settings</span>
-            </a>
-          </li> -->
+     
       </ul>
       <div class="settings-link">
         <a routerLink="/dashboard/settings">
@@ -51,9 +46,24 @@
       </div>
     </div>
   
-    <!-- Main Content -->
     <div class="main-content">
       <router-outlet></router-outlet>
     </div>
   </div>
+   -->
+   
+   <nav class="sidebar" [ngClass]="{'closed': isMenuClosed}">
+    <div class="menu-logo">Your Logo</div>
+    <ul>
+      <!-- <li (click)="navigateTo('dashboard/candidate-list')"><i class="fa fa-home"></i> Home</li> -->
+      <li (click)="navigateTo('home')"><i class="fa fa-home"></i> Home</li>
+      <li><i class="fa fa-cog"></i> Setting</li>
+      <li (click)="logout()"><i class="fa fa-sign-out-alt"></i> Logout</li>
+      <a (click)="navigateTo('file-import')">
+        <!-- <span class="icon">📂</span> -->
+        <span class="text">Start Interview</span>
+      </a>
+    </ul>
+  </nav>
+ 
   

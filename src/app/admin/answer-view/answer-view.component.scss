@@ -1,0 +1,121 @@
+.answer-view-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: 'Montserrat', sans-serif;
+    background: #ffffff;
+    overflow-y: auto;
+  }
+  
+  /* Title */
+  .header-title {
+    font-weight: 600;
+    font-size: 20px;
+    color: #222222;
+    margin-bottom: 30px;
+  }
+  
+  /* Question Block */
+  .question-block {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #C4C4C4;
+    padding-bottom: 30px;
+  }
+  
+  /* Question Label and Text */
+  .question-label {
+    font-weight: 600;
+    font-size: 15px;
+    color: #222222;
+    margin-bottom: 8px;
+  }
+  
+  .question-text {
+    font-weight: 500;
+    font-size: 15px;
+    color: #222222;
+    margin-left: 25px;
+    margin-bottom: 15px;
+  }
+  
+  /* Answer Label and Description */
+  .answer-label {
+    font-weight: 600;
+    font-size: 15px;
+    color: #222222;
+    margin-bottom: 5px;
+  }
+  
+  .answer-description {
+    font-weight: 400;
+    font-size: 15px;
+    color: #6C6D78;
+    margin-left: 25px;
+    margin-bottom: 20px;
+  }
+  
+  /* Marks Box */
+  .marks-box {
+    width: 123px;
+    height: 30px;
+    border: 1px solid #676A86;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    box-sizing: border-box;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  
+  .marks-box .icon {
+    width: 37px;
+    height: 20px;
+    background: #D9D9D9;
+    border-radius: 4px;
+  }
+  
+  .marks-box .line {
+    width: 1px;
+    height: 20px;
+    background: #000000;
+  }
+  
+  .marks-box .value {
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.005em;
+    color: #19181C;
+  }
+  
+  /* Divider (optional if you use .question-block border-bottom) */
+  .divider {
+    height: 1px;
+    background-color: #C4C4C4;
+    margin: 30px 0;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+    gap: 12px;
+  }
+  
+  .actions button {
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background: #f2f2f2;
+    color: #333;
+  }
+  .save-button {
+    background: #4556db;
+    color: white;
+  }

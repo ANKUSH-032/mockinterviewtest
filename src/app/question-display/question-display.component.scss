@@ -1,87 +1,247 @@
-/* Container for centering modal */
-.container {
-  max-width: 600px;
-  margin: auto;
+// /* Container for centering modal */
+// .container {
+//   max-width: 600px;
+//   margin: auto;
+// }
+
+// /* Question box style */
+// .question-box {
+//   background-color: #fff4e1; /* Updated background color */
+//   font-size: 1.5rem;
+//   font-weight: bold;
+//   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+//   border: 2px solid #feb47b; /* Updated border color */
+//   border-radius: 10px; /* Optional: Adding rounded corners */
+//   padding: 20px; /* Optional: Adjusting padding for better content spacing */
+// }
+
+// /* Camera feed positioning */
+// .container {
+//   position: relative;
+// }
+
+// /* Styling for the camera feed */
+// .camera-feed {
+//   position: fixed; /* Position the camera feed relative to the viewport */
+//   top: 10px; /* Adjust top position */
+//   right: 10px; /* Adjust right position */
+//   width: 200px; /* Set the width of the camera feed */
+//   height: 150px; /* Set the height of the camera feed */
+//   z-index: 1000; /* Ensure the camera feed stays on top */
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow around the camera feed */
+//   border-radius: 8px; /* Optional: Round the corners of the video */
+//   overflow: hidden;
+// }
+
+// /* Video inside the camera feed */
+// .camera-feed video {
+//   width: 100%; /* Make the video fill the container */
+//   height: 100%; /* Make the video fill the container */
+//   object-fit: cover; /* Crop the video to fit nicely */
+// }
+
+// /* Styling for modal header and footer */
+// .modal-header {
+//   background-color: #fff4e1; /* Modal background color */
+//   border-bottom: 2px solid #feb47b; /* Border color */
+// }
+
+// .modal-footer {
+//   background-color: transparent;
+//   padding-bottom: 4px;
+//   padding-top: 0;
+//   justify-content: center;
+// }
+
+// /* Styling for buttons */
+// .btn-outline-primary {
+//   border-color: #feb47b; /* Border color for cancel button */
+//   color: #feb47b; /* Text color for cancel button */
+// }
+
+// .btn-outline-primary:hover {
+//   background-color: #feb47b; /* Background color on hover */
+//   color: white; /* Text color on hover */
+// }
+
+// .btn-primary {
+//   background-color: #feb47b; /* Background color for submit button */
+//   border-color: #feb47b; /* Border color for submit button */
+// }
+
+// .btn-primary:hover {
+//   background-color: #feb47b; /* Background color on hover */
+//   color: white; /* Text color on hover */
+// }
+
+// /* Additional button styling */
+// .btn-action {
+//   padding: 10px 20px;
+//   font-size: 1rem;
+//   border-radius: 5px;
+//   transition: all 0.3s ease;
+// }
+
+// .ml-3 {
+//   margin-left: 1rem;
+// }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #F5F7FA;
 }
 
-/* Question box style */
-.question-box {
-  background-color: #fff4e1; /* Updated background color */
-  font-size: 1.5rem;
-  font-weight: bold;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  border: 2px solid #feb47b; /* Updated border color */
-  border-radius: 10px; /* Optional: Adding rounded corners */
-  padding: 20px; /* Optional: Adjusting padding for better content spacing */
+.dashboard-container {
+  padding: 40px 60px;
+  margin-left: 250px;
+  max-width: 1300px;
 }
 
-/* Camera feed positioning */
-.container {
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0;
+  color: #000000;
+}
+
+.test-cards {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.test-card {
+  width: 273px;
+  height: 285px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 2px 15px rgba(2, 0, 139, 0.1);
+  border: 1px solid rgba(231, 228, 232, 0.8);
+  padding: 20px;
   position: relative;
+  text-align: center;
 }
 
-/* Styling for the camera feed */
-.camera-feed {
-  position: fixed; /* Position the camera feed relative to the viewport */
-  top: 10px; /* Adjust top position */
-  right: 10px; /* Adjust right position */
-  width: 200px; /* Set the width of the camera feed */
-  height: 150px; /* Set the height of the camera feed */
-  z-index: 1000; /* Ensure the camera feed stays on top */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow around the camera feed */
-  border-radius: 8px; /* Optional: Round the corners of the video */
-  overflow: hidden;
+.test-icon {
+  width: 72px;
+  height: 72px;
+  margin-top: 15px;
 }
 
-/* Video inside the camera feed */
-.camera-feed video {
-  width: 100%; /* Make the video fill the container */
-  height: 100%; /* Make the video fill the container */
-  object-fit: cover; /* Crop the video to fit nicely */
+.badge {
+  position: absolute;
+  top: 17px;
+  left: 12px;
+  background-color: #DBEEFF;
+  color: #124395;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 2px;
 }
 
-/* Styling for modal header and footer */
-.modal-header {
-  background-color: #fff4e1; /* Modal background color */
-  border-bottom: 2px solid #feb47b; /* Border color */
+.test-title {
+  font-weight: 600;
+  font-size: 17px;
+  color: #222222;
+  margin: 20px 0 10px;
 }
 
-.modal-footer {
-  background-color: transparent;
-  padding-bottom: 4px;
-  padding-top: 0;
+.test-questions {
+  font-size: 13px;
+  color: #4556DB;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.take-test-btn {
+  background-color: #4556DB;
+  color: white;
+  font-size: 17px;
+  padding: 10px 30px;
+  border-radius: 32px;
+  border: none;
+  cursor: pointer;
+}
+
+.previous-tests {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.previous-test-card {
+  position: relative;
+  background: #fff;
+  height: 129px;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 15px rgba(2, 0, 139, 0.05);
+}
+
+.previous-test-card .badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.test-info {
+  margin-left: 100px;
+}
+
+.test-info .test-title {
+  font-weight: 600;
+  font-size: 17px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.test-info .test-questions {
+  font-size: 13px;
+  color: #4556DB;
+  font-weight: 500;
+}
+
+.status-badge {
+  position: absolute;
+  right: 30px;
+  top: 42px;
+  width: 142px;
+  height: 44px;
+  background: #EEF0FF;
+  border-radius: 30px;
+  color: #000842;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
 }
 
-/* Styling for buttons */
-.btn-outline-primary {
-  border-color: #feb47b; /* Border color for cancel button */
-  color: #feb47b; /* Text color for cancel button */
+.score-circle {
+  position: absolute;
+  right: 73px;
+  top: 33px;
+  width: 76px;
+  height: 76px;
+  background: #6FC381;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn-outline-primary:hover {
-  background-color: #feb47b; /* Background color on hover */
-  color: white; /* Text color on hover */
-}
-
-.btn-primary {
-  background-color: #feb47b; /* Background color for submit button */
-  border-color: #feb47b; /* Border color for submit button */
-}
-
-.btn-primary:hover {
-  background-color: #feb47b; /* Background color on hover */
-  color: white; /* Text color on hover */
-}
-
-/* Additional button styling */
-.btn-action {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.ml-3 {
-  margin-left: 1rem;
+.score-circle span {
+  font-weight: 400;
+  font-size: 12px;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,12 @@ export class HomeComponent implements OnInit {
   upcomingInterviews = 10;
   interviewsPassed = 50;
   interviewsFailed = 30;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  taketest(){
+    console.log("hello")
+    this.router.navigateByUrl('/question-display');
+  }
 }

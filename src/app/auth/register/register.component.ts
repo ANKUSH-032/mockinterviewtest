@@ -14,7 +14,9 @@ import { StorageService } from 'src/app/service/storage.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  registerForm!: FormGroup;
+  isPasswordVisible = false;
+  isConfirmVisible = false;
   type: string = 'Password';
   isText: boolean = false;
   eyeIcon: string = 'fa-eye-slash';
@@ -24,7 +26,7 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private auth: ApiService, 
     private toastr: ToastrService,
-    public activeModal: NgbActiveModal,
+    //public activeModal: NgbActiveModal,
     private router : Router,
     private storageService: StorageService,
     private commonService: CommonService
@@ -35,6 +37,14 @@ export class RegisterComponent implements OnInit {
       { value: 'male', label: 'Male' },
       { value: 'female', label: 'Female' },
     ];
+
+    this.registerForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
+    });
 
 
     this.signupForm = this.fb.group({
@@ -55,24 +65,24 @@ export class RegisterComponent implements OnInit {
     this.isText ? (this.type = 'text') : (this.type = 'password');
   }
   close(type:number = 0){
-    this.activeModal.close({status: type});
+    //this.activeModal.close({status: type});
   }
 
   onSignup() {
-    this.activeModal.close();
+    //this.activeModal.close();
     if (this.signupForm.valid) {
       console.log(this.signupForm.value);
       this.auth.postRequest('Candidate/insert', this.signupForm.value).subscribe({
         next: (res: any) => {
-          this.activeModal.close();
+         // this.activeModal.close();
           this.toastr.success(res.message + " Kindly Login to the site");
           const token = this.storageService.get('token');
-  
-          if (token != null) {
-            this.router.navigate(['/dashboard']);
-          } else {
-            this.router.navigateByUrl('/login');
-          }
+          this.router.navigateByUrl('/login')
+          // if (token != null) {
+          //   this.router.navigate(['/dashboard']);
+          // } else {
+          //   this.router.navigateByUrl('/login');
+          // }
         },
         error: (res: any) => {
           if (res.status === 409) {
@@ -90,6 +100,23 @@ export class RegisterComponent implements OnInit {
   
 viewButton(){
   this.storageService.get('token')
+}
+
+togglePassword() {
+  this.isPasswordVisible = !this.isPasswordVisible;
+}
+
+toggleConfirmPassword() {
+  this.isConfirmVisible = !this.isConfirmVisible;
+}
+
+submitRegister() {
+  console.log("hii");
+  
+  if (this.registerForm.valid) {
+    console.log(this.registerForm.value);
+    // TODO: Add registration API logic
+  }
 }
 
 }

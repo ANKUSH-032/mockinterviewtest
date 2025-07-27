@@ -1,139 +1,307 @@
-body {
-    background: linear-gradient(to bottom, #feb47b, #f9f9f9);
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Arial', sans-serif;
-  }
+// body {
+//     background: linear-gradient(to bottom, #feb47b, #f9f9f9);
+//     height: 100vh;
+//     margin: 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     font-family: 'Arial', sans-serif;
+//   }
   
-  .panel {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  }
+//   .panel {
+//     background-color: rgba(255, 255, 255, 0.9);
+//     padding: 30px;
+//     border-radius: 12px;
+//     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+//   }
   
-  .panel-heading {
-    position: relative;
-    text-align: center;
-    margin-bottom: 20px;
+//   .panel-heading {
+//     position: relative;
+//     text-align: center;
+//     margin-bottom: 20px;
+//     font-size: 24px;
+//     color: #333;
+//   }
+  
+//   .close-btn {
+//     position: absolute;
+//     top: 10px;
+//     right: 10px;
+//     font-size: 30px; /* Larger size for the "X" button */
+//     font-weight: bold; /* Bold font for the "X" */
+//     color: #0d0a0a; /* Dark color for visibility */
+//     cursor: pointer;
+//   }
+  
+//   .close-btn:hover {
+//     color: #f00; /* Change to red when hovered */
+//   }
+  
+//   .form-group {
+//     margin-bottom: 20px;
+//   }
+  
+//   .input-group {
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//   }
+  
+//   .input-group label {
+//     margin-bottom: 8px;
+//     font-size: 14px;
+//     color: #333;
+//   }
+  
+//   .input-group-text {
+//     position: absolute;
+//     left: 15px;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     background-color: #feb47b;
+//   }
+  
+//   .form-control {
+//     border: 1px solid #feb47b; /* Set the default border to #feb47b */
+//     padding: 12px 15px;
+//     border-radius: 8px;
+//     width: 100%;
+//     font-size: 14px;
+//     background-color: #ffebc7; /* Lighter shade of #feb47b for the background */
+//     transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition for border and background */
+//   }
+  
+//   /* Focus state for the input fields */
+//   .form-control:focus {
+//     border-color: #feb47b; /* Light border color on focus */
+//     background-color: #fff4e1; /* Light background color on focus */
+//     box-shadow: 0 0 5px rgba(254, 180, 123, 0.6); /* Optional: Adds a light glow effect */
+//     outline: none; /* Remove default outline */
+//   }
+  
+//   /* Add focus effect to input fields with error */
+//   .input-group.error .form-control {
+//     border-color: #e74c3c; /* Change border to red if there is an error */
+//   }
+  
+//   .input-group.error .form-control:focus {
+//     border-color: #e74c3c; /* Keep the red border when focused with error */
+//     box-shadow: 0 0 5px rgba(231, 76, 60, 0.6); /* Red glow effect */
+//   }
+  
+//   .eye-icon {
+//     cursor: pointer;
+//     position: absolute;
+//     right: 15px;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     color: #666;
+//   }
+  
+//   .fr {
+//     text-align: right;
+//   }
+  
+//   .btn-block {
+//     width: 100%;
+//     background-color: #feb47b;
+//     color: white;
+//     padding: 12px;
+//     border: none;
+//     border-radius: 8px;
+//     font-size: 16px;
+//     cursor: pointer;
+//     margin-top: 10px;
+//   }
+  
+//   .btn-block:hover {
+//     background: #ff7e5f;
+//   }
+  
+//   .text-center {
+//     text-align: center;
+//   }
+  
+//   .text-muted {
+//     color: #feb47b;
+//   }
+  
+//   #forget {
+//     color: #feb47b;
+//     font-weight: bold;
+//     text-decoration: none;
+//   }
+  
+//   #forget:hover {
+//     color: #ff7e5f;
+//     text-decoration: underline;
+//   }
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  position: relative;
+}
+
+.login-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: 900px;
+  background-color: #fff;
+}
+
+.logo {
+  position: absolute;
+  top: 30px;
+  left: 42px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+.login-illustration {
+  position: absolute;
+  top: 21px;
+  left: 683px;
+  width: 735px;
+  height: 859px;
+}
+
+.login-card {
+  position: absolute;
+  top: 150px;
+  left: 122px;
+  width: 433px;
+  height: 633px;
+  background-color: #ffffff;
+  box-shadow: none;
+  border: none;
+}
+
+.login-content {
+  width: 100%;
+  padding: 0;
+}
+
+.login-header {
+  width: 310px;
+  margin-bottom: 52px;
+
+  h1 {
+    font-weight: 500;
     font-size: 24px;
-    color: #333;
+    color: #000;
+    margin-bottom: 30px;
   }
-  
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px; /* Larger size for the "X" button */
-    font-weight: bold; /* Bold font for the "X" */
-    color: #0d0a0a; /* Dark color for visibility */
+
+  p {
+    font-size: 16px;
+    color: #000;
+
+    .register-link {
+      font-weight: 600;
+      color: #4556db;
+      cursor: pointer;
+      margin-left: 6px;
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 30px;
+  position: relative;
+
+  label {
+    font-size: 13px;
+    color: #999;
+    font-weight: 500;
+  }
+
+  .input-wrapper {
+    position: relative;
+    margin-top: 8px;
+
+    input {
+      width: 100%;
+      padding: 8px 0 6px 25px;
+      font-size: 16px;
+      color: #717172;
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+
+    .underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #000741;
+
+      &.light {
+        background-color: #999;
+      }
+    }
+  }
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+
+  .remember-me {
+    font-size: 12px;
+    font-weight: 300;
+    color: #000;
+
+    input {
+      margin-right: 5px;
+    }
+  }
+
+  .forgot-password {
+    font-size: 12px;
+    font-weight: 300;
+    color: #4c4c4c;
     cursor: pointer;
   }
-  
-  .close-btn:hover {
-    color: #f00; /* Change to red when hovered */
-  }
-  
-  .form-group {
+}
+
+.login-btn {
+  width: 100%;
+  height: 53px;
+  background-color: #4456db;
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  border: none;
+  border-radius: 32px;
+  box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.social-login {
+  text-align: center;
+  margin-top: 30px;
+
+  p {
+    color: #b4b4b4;
+    font-size: 16px;
+    font-weight: 500;
     margin-bottom: 20px;
   }
-  
-  .input-group {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-group label {
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .input-group-text {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #feb47b;
-  }
-  
-  .form-control {
-    border: 1px solid #feb47b; /* Set the default border to #feb47b */
-    padding: 12px 15px;
-    border-radius: 8px;
-    width: 100%;
-    font-size: 14px;
-    background-color: #ffebc7; /* Lighter shade of #feb47b for the background */
-    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition for border and background */
-  }
-  
-  /* Focus state for the input fields */
-  .form-control:focus {
-    border-color: #feb47b; /* Light border color on focus */
-    background-color: #fff4e1; /* Light background color on focus */
-    box-shadow: 0 0 5px rgba(254, 180, 123, 0.6); /* Optional: Adds a light glow effect */
-    outline: none; /* Remove default outline */
-  }
-  
-  /* Add focus effect to input fields with error */
-  .input-group.error .form-control {
-    border-color: #e74c3c; /* Change border to red if there is an error */
-  }
-  
-  .input-group.error .form-control:focus {
-    border-color: #e74c3c; /* Keep the red border when focused with error */
-    box-shadow: 0 0 5px rgba(231, 76, 60, 0.6); /* Red glow effect */
-  }
-  
-  .eye-icon {
+
+  .google-login {
+    width: 41px;
+    height: 41px;
     cursor: pointer;
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
   }
-  
-  .fr {
-    text-align: right;
-  }
-  
-  .btn-block {
-    width: 100%;
-    background-color: #feb47b;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .btn-block:hover {
-    background: #ff7e5f;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
-  .text-muted {
-    color: #feb47b;
-  }
-  
-  #forget {
-    color: #feb47b;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  #forget:hover {
-    color: #ff7e5f;
-    text-decoration: underline;
-  }
-  
+}

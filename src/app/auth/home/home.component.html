@@ -1,39 +1,58 @@
-<div class="home">
-    <div class="header">
-        <h2>Dashboard Overview</h2>
-        <button class="start-interview-btn" routerLink="/dashboard/file-import">Start Interview</button>
+
+  <div class="dashboard-container">
+    <h2 class="section-title">Tests</h2>
+    <div class="test-cards">
+      <div class="test-card beginner">
+        <span class="badge">Beginner</span>
+        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
+        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+        <div class="test-questions">Questions - 20</div>
+        <button class="take-test-btn">Take Test</button>
+      </div>
+
+      <div class="test-card intermediate">
+        <span class="badge">Intermediate</span>
+        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
+        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+        <div class="test-questions">Questions - 20</div>
+        <button class="take-test-btn" (click)="taketest()">Take Test</button>
+      </div>
+
+      <div class="test-card advanced">
+        <span class="badge">Advanced</span>
+        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
+        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+        <div class="test-questions">Questions - 20</div>
+        <button class="take-test-btn">Take Test</button>
+      </div>
+
+      <div class="test-card beginner">
+        <span class="badge">Beginner</span>
+        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
+        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+        <div class="test-questions">Questions - 20</div>
+        <button class="take-test-btn">Take Test</button>
+      </div>
     </div>
-  
-    <div class="stats-container">
-      <div class="stat-card">
-        <span class="icon">👥</span>
-        <h3>Total Candidates</h3>
-        <p>{{ totalCandidates }}</p>
+
+    <h2 class="section-title">Previous Tests</h2>
+    <div class="previous-tests">
+      <div class="previous-test-card">
+        <span class="badge">Beginner</span>
+        <div class="test-info">
+          <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+          <div class="test-questions">Questions - 20</div>
+        </div>
+        <div class="status-badge pending">Pending</div>
       </div>
-  
-      <div class="stat-card">
-        <span class="icon">🎤</span>
-        <h3>Total Interviews</h3>
-        <p>{{ totalInterviews }}</p>
+
+      <div class="previous-test-card">
+        <span class="badge">Intermediate</span>
+        <div class="test-info">
+          <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+          <div class="test-questions">Questions - 20</div>
+        </div>
+        <div class="score-circle">80%<br />Score</div>
       </div>
-  
-      <!-- <div class="stat-card">
-        <span class="icon">📆</span>
-        <h3>Upcoming Interviews</h3>
-        <p>{{ upcomingInterviews }}</p>
-      </div> -->
-  
-      <!-- <div class="stat-card">
-        <span class="icon">✅</span>
-        <h3>Interviews Passed</h3>
-        <p>{{ interviewsPassed }}</p>
-      </div> -->
-  
-      <!-- <div class="stat-card">
-        <span class="icon">❌</span>
-        <h3>Interviews Failed</h3>
-        <p>{{ interviewsFailed }}</p>
-      </div> -->
     </div>
   </div>
-  

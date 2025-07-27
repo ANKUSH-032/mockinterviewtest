@@ -1,1 +1,31 @@
-<p>candidate-list works!</p>
+<div class="candidate-list-container">
+    <div class="table-wrapper">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Test Topic</th>
+            <th>Score</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let candidate of candidates">
+            <td>{{ candidate.firstName }}</td>
+            <td>{{ candidate.lastName }}</td>
+            <td>{{ candidate.email }}</td>
+            <td>{{ candidate.testTopic }}</td>
+            <td>{{ candidate.score }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="answerview()">Check Test</button>
+              <button class="btn btn-secondary">View</button>
+            </td>
+          </tr>
+          <!-- Repeat rows -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

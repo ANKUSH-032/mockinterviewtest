@@ -1,17 +1,12 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
     <h2 class="text-center">Question Display</h2>
   
-    <!-- Show live camera preview -->
+   
     <div *ngIf="!isMediaReady" class="text-center">
       <p class="text-muted">Initializing camera and microphone...</p>
     </div>
   
-    <!-- <div *ngIf="isMediaReady"> -->
-      <!-- <div class="camera-preview text-center mb-4">
-        <video #video autoplay playsinline muted class="rounded" style="max-width: 100%; height: auto;"></video>
-      </div> -->
-  
-      <!-- Display questions -->
+   
       <div *ngIf="questions.length > 0; else noQuestions">
         <div class="question text-center mt-3">
           <h4>Question {{ questionIndex + 1 }}:</h4>
@@ -25,7 +20,7 @@
       <div class="camera-feed">
         <video #video autoplay playsinline muted></video>
       </div>
-      <!-- Message if no questions are available -->
+
       <ng-template #noQuestions>
         <div class="text-center mt-3">
           <p class="text-muted">No questions available. Please upload your questions in the correct Excel format.</p>
@@ -38,6 +33,60 @@
       <div *ngIf="isSubmitVisible" class="text-center mt-3">
         <button (click)="submitAnswers()" class="btn btn-success">Submit Answers</button>
       </div>
-    <!-- </div> -->
+   
   </div>
+   -->
+
   
+  <div class="dashboard-container">
+    <h2 class="section-title">Tests</h2>
+    <div class="test-cards">
+      <div class="test-card beginner">
+        <span class="badge">Beginner</span>
+        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
+        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+        <div class="test-questions">Questions - 20</div>
+        <button class="take-test-btn">Take Test</button>
+      </div>
+
+      <div class="test-card intermediate">
+        <span class="badge">Intermediate</span>
+        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
+        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+        <div class="test-questions">Questions - 20</div>
+        <button class="take-test-btn">Take Test</button>
+      </div>
+
+      <div class="test-card advanced">
+        <span class="badge">Advanced</span>
+        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
+        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+        <div class="test-questions">Questions - 20</div>
+        <button class="take-test-btn">Take Test</button>
+      </div>
+    </div>
+
+    <h2 class="section-title">Previous Tests</h2>
+    <div class="previous-tests">
+      <div class="previous-test-card">
+        <span class="badge">Beginner</span>
+        <div class="test-info">
+          <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+          <div class="test-questions">Questions - 20</div>
+        </div>
+        <div class="status-badge">Pending</div>
+      </div>
+
+      <div class="previous-test-card">
+        <span class="badge">Intermediate</span>
+        <div class="test-info">
+          <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
+          <div class="test-questions">Questions - 20</div>
+        </div>
+        <div class="score-circle">
+          80%<br/><span>Score</span>
+        </div>
+      </div>
+    </div>
+  </div>
+

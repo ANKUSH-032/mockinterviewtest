@@ -1,16 +1,16 @@
-<div class="login-container">
+<!-- <div class="login-container">
     <div class="outer">
       <div class="panel">
         <div class="panel-heading">
           <div class="panel-heading d-flex justify-content-between align-items-center">
             <h3 class="pt-3 font-weight-bold text-dark">Login</h3>
-            <span class="close-btn" (click)="close()">×</span>
+            <span class="close-btn" (click)="close(0)">×</span>
           </div>
         </div>
   
         <div class="panel-body p-3">
           <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate autocomplete="off">
-            <!-- Disable autocomplete for the entire form -->
+           
             <div class="form-group">
               <div
                 class="input-group"
@@ -81,9 +81,82 @@
             <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
             <button type="reset" class="btn btn-primary btn-block mt-4">Reset</button>
             <div class="text-center pt-4 text-muted">
-              Don't have an account? <a id="forget" (click)="close()">Sign Up</a>
+              Don't have an account? <a id="forget" (click)="close(0)">Sign Up</a>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+   <div class="login-page">
+    <div class="login-wrapper">
+  
+      <div class="logo">Your Logo</div>
+  
+      <img
+        class="login-illustration"
+        alt="Login illustration"
+        src="assets/login-illustration.png"
+      />
+  
+      <div class="login-card">
+        <div class="login-content">
+  
+          <!-- Header -->
+          <div class="login-header">
+            <h1>Sign in</h1>
+            <p>If you don't have an account register</p>
+            <p>
+              <span>You can</span>
+              <span class="register-link" (click)="register()">Register here!</span>
+            </p>
+          </div>
+  
+          <!-- Form -->
+          <form>
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email">Email</label>
+              <i class="fa fa-envelope icon"></i>
+              <div class="input-wrapper">
+                <input type="email" id="email" placeholder="Enter your email address" />
+                <div class="underline"></div>
+              </div>
+            </div>
+  
+            <!-- Password -->
+            <div class="form-group">
+              <i class="fa fa-lock icon"></i>
+              <label for="password">Password</label>
+              <div class="input-wrapper">
+                <input type="password" id="password" placeholder="Enter your password" />
+                <div class="underline light"></div>
+              </div>
+            </div>
+  
+            <!-- Options -->
+            <div class="options">
+              <label class="remember-me">
+                <input type="checkbox" />
+                Remember me
+              </label>
+              <span class="forgot-password">Forgot Password?</span>
+            </div>
+  
+            <!-- Login Button -->
+            <button type="submit" class="login-btn" (click)="submitLogin()">Login</button>
+          </form>
+  
+          <!-- Continue with -->
+          <div class="social-login">
+            <p>or continue with</p>
+            <img
+              class="google-login"
+              alt="Google login"
+              src="https://c.animaapp.com/mdlgs5ranmMNYP/img/group-13.png"
+            />
+          </div>
         </div>
       </div>
     </div>

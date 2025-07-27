@@ -47,7 +47,7 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
       this.setupMediaAccess();
       this.initializeSpeechRecognition();
     } else if (this.questions.length === 0) {
-      this.handleNoQuestions(); // Handle the case where no questions are available
+      //this.handleNoQuestions(); // Handle the case where no questions are available
     } else {
       this.toastr.error('No questions found!');
     }
@@ -132,19 +132,19 @@ export class QuestionDisplayComponent implements OnInit, OnDestroy {
       this.recognition.start();
     }
   }
-  handleNoQuestions(): void {
-    this.toastr.warning(
-      'No questions available. Redirecting to upload page in 1 minute.'
-    );
+  // handleNoQuestions(): void {
+  //   this.toastr.warning(
+  //     'No questions available. Redirecting to upload page in 1 minute.'
+  //   );
 
-    this.redirectTimeout = setTimeout(() => {
-      this.toastr.error(
-        'Please upload your questions in the correct Excel format.',
-        'No Questions Found'
-      );
-      this.router.navigate(['/file-import']); // Redirect to the file upload page
-    }, 30000); // Redirect after 1 minute
-  }
+  //   this.redirectTimeout = setTimeout(() => {
+  //     this.toastr.error(
+  //       'Please upload your questions in the correct Excel format.',
+  //       'No Questions Found'
+  //     );
+  //     this.router.navigate(['/file-import']); // Redirect to the file upload page
+  //   }, 30000); // Redirect after 1 minute
+  // }
 
   startQuestionTimer(): void {
     this.setCurrentQuestion();
