@@ -1,58 +1,23 @@
+<div class="dashboard-container">
+  <h2 class="section-title">Tests</h2>
 
-  <div class="dashboard-container">
-    <h2 class="section-title">Tests</h2>
-    <div class="test-cards">
-      <div class="test-card beginner">
-        <span class="badge">Beginner</span>
-        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
-        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
-        <div class="test-questions">Questions - 20</div>
-        <button class="take-test-btn"(click)="taketest()">Take Test</button>
-      </div>
+  <div *ngIf="loading">Loading...</div>
 
-      <div class="test-card intermediate">
-        <span class="badge">Intermediate</span>
-        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
-        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
-        <div class="test-questions">Questions - 20</div>
-        <button class="take-test-btn" (click)="taketest()">Take Test</button>
-      </div>
-
-      <div class="test-card advanced">
-        <span class="badge">Advanced</span>
-        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
-        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
-        <div class="test-questions">Questions - 20</div>
-        <button class="take-test-btn">Take Test</button>
-      </div>
-
-      <div class="test-card beginner">
-        <span class="badge">Beginner</span>
-        <img src="test-icon.png" alt="Test Icon" class="test-icon" />
-        <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
-        <div class="test-questions">Questions - 20</div>
-        <button class="take-test-btn">Take Test</button>
-      </div>
-    </div>
-
-    <h2 class="section-title">Previous Tests</h2>
-    <div class="previous-tests">
-      <div class="previous-test-card">
-        <span class="badge">Beginner</span>
-        <div class="test-info">
-          <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
-          <div class="test-questions">Questions - 20</div>
-        </div>
-        <div class="status-badge pending">Pending</div>
-      </div>
-
-      <div class="previous-test-card">
-        <span class="badge">Intermediate</span>
-        <div class="test-info">
-          <div class="test-title">Pre-Visit and In-Hospital Behavior Assessment</div>
-          <div class="test-questions">Questions - 20</div>
-        </div>
-        <div class="score-circle">80%<br />Score</div>
-      </div>
+  <div class="test-cards" *ngIf="!loading && dashboardList.length > 0">
+    <div
+      class="test-card"
+      *ngFor="let test of dashboardList"
+      [ngClass]="test.level.toLowerCase()"
+    >
+      <span class="badge">{{ test.level }}</span>
+      <img src="test-icon.png" alt="Test Icon" class="test-icon" />
+      <div class="test-title">{{ test.title }}</div>
+      <div class="test-questions">Questions - {{ test.questionCount }}</div>
+      <button class="take-test-btn" (click)="taketest()">Take Test</button>
     </div>
   </div>
+
+  <div *ngIf="!loading && dashboardList.length === 0">
+    No tests available
+  </div>
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +15,29 @@ export class HomeComponent implements OnInit {
   upcomingInterviews = 10;
   interviewsPassed = 50;
   interviewsFailed = 30;
-  constructor(private router: Router) { }
+  dashboardList: any[] = [];
+  loading = false;
+  constructor(private router: Router,
+     private authService: ApiService,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
+    this.loadDashboardList();
+  }
+
+  loadDashboardList() {
+    this.loading = true;
+    this.authService.getRequest('ListApiEndpoint').subscribe(
+      (res: any) => {
+        this.dashboardList = res.data || [];
+        this.loading = false;
+      },
+      (err) => {
+        this.toastr.error('Failed to load dashboard list');
+        this.loading = false;
+      }
+    );
   }
   taketest(){
     console.log("hello")
