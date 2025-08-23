@@ -15,10 +15,10 @@ import { AnswerViewComponent } from './admin/answer-view/answer-view.component';
 
 
 const routes: Routes = [
-  //{ path: '', redirectTo: 'main-page', pathMatch: 'full' },
+ // { path: '', redirectTo: 'main-page', pathMatch: 'full' },
   {path:'',component:NotfoundComponent},
- // { path: '**', redirectTo: '/main-page' },
- // {path:'main-page',component:MainPageComponent},
+ //{ path: '**', redirectTo: '/main-page' },
+  //{path:'main-page',component:MainPageComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   // {path:'login',component:MainPageComponent},

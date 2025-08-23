@@ -114,13 +114,13 @@
           </div>
   
           <!-- Form -->
-          <form>
+          <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate autocomplete="off">
             <!-- Email -->
             <div class="form-group">
               <label for="email">Email</label>
               <i class="fa fa-envelope icon"></i>
               <div class="input-wrapper">
-                <input type="email" id="email" placeholder="Enter your email address" />
+                <input type="email" id="email" formControlName="email" placeholder="Enter your email address" />
                 <div class="underline"></div>
               </div>
             </div>
@@ -130,7 +130,7 @@
               <i class="fa fa-lock icon"></i>
               <label for="password">Password</label>
               <div class="input-wrapper">
-                <input type="password" id="password" placeholder="Enter your password" />
+                <input type="password" id="password" formControlName="password" placeholder="Enter your password" />
                 <div class="underline light"></div>
               </div>
             </div>
@@ -145,7 +145,7 @@
             </div>
   
             <!-- Login Button -->
-            <button type="submit" class="login-btn" (click)="submitLogin()">Login</button>
+            <button type="submit" class="login-btn">Login</button>
           </form>
   
           <!-- Continue with -->

@@ -16,9 +16,9 @@ export class ApiService {
     private ngxUiLoaderService: NgxUiLoaderService,) {this.loader = this.ngxUiLoaderService.getLoader(); }
 
   getRequest(url: string): Observable<any> {
-    this.ngxUiLoaderService.startLoader(this.loader.loaderId);
+    this.ngxUiLoaderService.startLoader(this.loader?.loaderId);
     return this.httpClient.get(baseURL + url).pipe(map((response : any) => {
-      setTimeout(() => this.ngxUiLoaderService.stopLoader(this.loader.loaderId), 500)
+      setTimeout(() => this.ngxUiLoaderService.stopLoader(this.loader?.loaderId), 500)
 
       return response;
     }));
@@ -26,22 +26,21 @@ export class ApiService {
 
   postRequest(url: string, data: any, isLoader: boolean = true): Observable<any> {
     if (isLoader) {
-      this.ngxUiLoaderService.startLoader(this.loader.loaderId);
+      this.ngxUiLoaderService.startLoader(this.loader?.loaderId);
     }
   
     return this.httpClient.post(baseURL + url, data).pipe(
       map((response: any) => {
         // Stop loader immediately after receiving a response (success or failure)
-        this.ngxUiLoaderService.stopLoader(this.loader.loaderId);
+        this.ngxUiLoaderService.stopLoader(this.loader?.loaderId);
         return response;
       }),
       catchError((error) => {
         // Stop loader immediately on error
-        this.ngxUiLoaderService.stopLoader(this.loader.loaderId);
+        this.ngxUiLoaderService.stopLoader(this.loader?.loaderId);
         // Rethrow the error so it can be handled in the component
         return throwError(error);
       })
     );
-  }
-  
+  }  
 }

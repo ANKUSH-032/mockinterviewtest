@@ -11,10 +11,10 @@ import { StorageService } from 'src/app/service/storage.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
- // @Input() public modalData: any;
+  // @Input() public modalData: any;
 
   modalRef!: NgbModalRef;
   loginForm!: FormGroup;
@@ -25,14 +25,13 @@ export class LoginComponent implements OnInit {
   fieldTextType: boolean = false;
 
   constructor(
-  //  public activeModal: NgbActiveModal,
+    //  public activeModal: NgbActiveModal,
     private fb: FormBuilder,
     private router: Router,
     private authService: ApiService,
     private storageService: StorageService,
     private toastr: ToastrService,
     private layoutService: LayoutService
-
   ) {}
 
   ngOnInit(): void {
@@ -50,45 +49,58 @@ export class LoginComponent implements OnInit {
   }
 
   submitLogin() {
-    console.log("hhiii");
+    //console.log("hhiii");
     this.layoutService.showSidebar(true);
     //this.router.navigateByUrl('dashboard/candidate-list');
-    this.router.navigateByUrl('/dashboard/home');
-   // this.submitted = true;
 
-    // if (this.loginForm.valid) {
-    //   const loginData = this.loginForm.value;
+    this.submitted = true;
+    console.log(this.loginForm);
+    if (this.loginForm.valid) {
+      const loginData = this.loginForm.value;
 
-    //   this.authService.postRequest('Auth/login', loginData).subscribe(
-    //     (res: any) => {
-    //       if (res && res.status) {
-    //         localStorage.setItem('isLoggedIn', 'true');
-    //         localStorage.setItem('token', res.userdetails.token);
-    //         this.storageService.set('user', res.data);
-    //         this.storageService.set('token', res.userdetails.token);
-    //         this.storageService.set('role', res.userdetails.role);
-    //         this.toastr.success(res.message || 'Login successful');
+      this.authService.postRequest('Auth/login', loginData).subscribe(
+        (res: any) => {
+          if (res && res.status) {
+            console.log(res);
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('token', res.userdetails.token);
+            this.storageService.set('user', res.data);
+            this.storageService.set('token', res.userdetails.token);
+            this.storageService.set('role', res.userdetails.role);
+            this.toastr.success(res.message || 'Login successful');
 
-    //         if (res.userdetails.role === '1') {
-    //           this.router.navigateByUrl('/dashboard/home');
-    //           //this.close();
-    //         } else {
-    //           this.router.navigateByUrl('/list-appointment');
-    //           this.storageService.set('patientuserId', res.userdetails.userId);
-    //           //this.close();
-    //         }
-    //       } else {
-    //         this.toastr.error(res.message || 'Login unsuccessful');
-    //       }
-    //     },
-    //     (err) => {
-    //       this.toastr.error(err?.message || 'Login request failed');
-    //     }
-    //   );
-    // } else {
-    //   ValiadateForm.validateAllFormFileds(this.loginForm);
-    //   this.toastr.error('Your form is invalid');
-    // }
+            if (res.userdetails.role === '1') {
+              
+               this.authService.getRequest('ListApiEndpoint').subscribe(
+              (listRes: any) => {
+                this.storageService.set('dashboardList', listRes.data);
+                this.router.navigateByUrl('/dashboard/home');
+              },
+              (err) => {
+                this.toastr.error('Failed to load dashboard list');
+                this.router.navigateByUrl('/dashboard/home'); // still navigate
+              }
+            );
+          
+              //this.close();
+            } else {
+              this.router.navigateByUrl('/list-appointment');
+              this.storageService.set('patientuserId', res.userdetails.userId);
+              //this.close();
+            }
+          } else {
+            this.toastr.error(res.message || 'Login unsuccessful');
+          }
+        },
+        (err) => {
+          this.toastr.error(err?.message || 'Login request failed');
+        }
+      );
+    } else {
+      ValiadateForm.validateAllFormFileds(this.loginForm);
+
+      this.toastr.error('Your form is invalid');
+    }
   }
 
   // close(type: number = 0) {
@@ -105,7 +117,7 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem('token');
   }
 
-  register(){
-    this.router.navigateByUrl('/register')
+  register() {
+    this.router.navigateByUrl('/register');
   }
 }
